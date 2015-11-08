@@ -1,0 +1,44 @@
+#this is just an internal client tunnel from ubuntu server to raspberry Pi
+#certificate info removed from this file
+
+client
+dev tun1
+proto udp
+remote 192.168.1.18 1194 #this is the internal address of my raspberry Pi
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+mute-replay-warnings
+ns-cert-type server
+key-direction 1
+cipher AES-128-CBC
+comp-lzo
+verb 1
+mute 20
+askpass /etc/openvpn/phil.pass
+
+<ca>
+-----BEGIN CERTIFICATE-----
+blah blah
+-----END CERTIFICATE-----
+</ca>
+<cert>
+-----BEGIN CERTIFICATE-----
+blah blah
+-----END CERTIFICATE-----
+</cert>
+<key>
+-----BEGIN RSA PRIVATE KEY-----
+blah blah
+-----END RSA PRIVATE KEY-----
+</key>
+<tls-auth>
+#
+# 2048 bit OpenVPN static key
+#
+-----BEGIN OpenVPN Static key V1-----
+blah blah
+-----END OpenVPN Static key V1-----
+</tls-auth>
+
